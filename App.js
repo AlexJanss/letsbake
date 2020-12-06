@@ -1,5 +1,7 @@
 import React from 'react';
 import * as eva from '@eva-design/eva';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
 import { default as theme } from './assets/theme.json';
 import { default as mapping } from './mapping.json';
@@ -10,11 +12,22 @@ const HomeScreen = () => (
     </Layout>
 );
 
-export default () => (
-    <ApplicationProvider
-        {...eva}
-        theme={{ ...eva.dark, ...theme }}
-        customMapping={mapping}>
-      <HomeScreen />
-    </ApplicationProvider>
-);
+
+const Stack = createStackNavigator();
+
+function App() {
+    return (
+        <ApplicationProvider
+            {...eva}
+            theme={{...eva.dark, ...theme}}
+            customMapping={mapping}>
+            <NavigationContainer>
+                <Stack.Navigator>
+                    <Stack.Screen name="Home" component={HomeScreen}/>
+                </Stack.Navigator>
+            </NavigationContainer>
+        </ApplicationProvider>
+    );
+}
+
+export default App;
