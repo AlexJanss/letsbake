@@ -21,7 +21,7 @@ export const DetailsScreen = ({ navigation }) => {
             <TopNavigation title='Lets bake' alignment='center' accessoryLeft={BackAction}/>
             <Divider/>
             <Layout style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text category='h1'>DETAILS</Text>
+                <Text category='h1'>Recipe</Text>
             </Layout>
         </SafeAreaView>
     );
